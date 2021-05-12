@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assests/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
+    
+</head>
+<body>
+    <section class="banner">
+        <h1 class="top">我的個人履歷</h1>
+        <img class="ban-img" src="assests/person.jpg" alt="">
+    </section>
+    <section class="info">
+        <div class="info-container">
+            <h2 class="info-title">個人資訊</h2>
+            <div class="card">
+                <div class="imgbx">
+                    <img src="assests/leeshao.jpeg">
+                </div>
+                <div class="media-link">
+                    <a href="https://www.facebook.com/profile.php?id=100001804193621" class="fa fa-facebook"></a>
+                </div>
+                <div class="media-link">
+                    <a href="https://www.instagram.com/leeshao7/" class="fa fa-instagram"></a>
+                </div>
+            </div>
+            <div class="info-content">
+                <h3>我是李紹誠</h3>
+                <p class="info-saying">&#10077;All things in their being<br> are good for something.&#10080;</p>
+                <p class="info-text">來自中原大學資管系二年級</p>
+                <p class="info-text">生日:2001/3/1</p>
+                <p class="info-text">學歷背景:</p>
+                <ul class="timeline">
+                    <li class="school">南光國小</li>
+                    <li class="school">宏仁國中</li>
+                    <li class="school">西苑高中</li>
+                    <li class="school">中原大學</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="skill">
+        <div class="skill-container">
+            <h2 class="skill-title">專業技能</h2>
+            <h2 class="bg-text">SKILL</h2>
+        </div>
+        <div class="box">
+            <div class="skill">
+                <div class="graph" style="height:70%">
+                    <div class="percent">70%</div>
+                    <div class="lang">Html</div>
+                </div>
+            </div>
+            <div class="skill">
+                <div class="graph" style="height:80%">
+                    <div class="percent">80%</div>
+                    <div class="lang">CSS</div>
+                </div>
+            </div>
+            <div class="skill">
+                <div class="graph" style="height:60%">
+                    <div class="percent">60%</div>
+                    <div class="lang">JAVA</div>
+                </div>
+            </div>
+            <div class="skill">
+                <div class="graph" style="height:30%">
+                    <div class="percent">30%</div>
+                    <div class="lang">PYTHON</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="exp">
+        <h2 class="exp-title">經歷</h2>
+        <div class="exp-container">
+            <div class="project">
+                <div class="imgbox">
+                    <img src="./assests/dog.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h2 class="text1">服務學習</h2>
+                    <p class="p1">前往位於桃園市新屋區的動物保護教育園區進行志工服務，學習到許多與動物相處需要知道的知識，並且了解到台灣流浪動物的處境</p>
+                </div>
+            </div>
+            <div class="project">
+                <div class="imgbox">
+                    <img src="assests/business.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h2 class="text2">企業概論</h2>
+                    <p class="p2">學習如何經營企業與銷售產品方法，以及企業內部分工合作，了解客戶需求與發掘潛在客戶</p>
+                </div>
+            </div>
+            <div class="project">
+                <div class="imgbox">
+                    <img src="assests/web.png" alt="">
+                </div>
+                <div class="content">
+                    <h2 class="text3">多媒專案</h2>
+                    <p class="p3">實際操作建立網站，過程中能學習網頁設計技巧並且能從中累積網頁設計與排版經驗</p>
+                </div>
+            </div>
+        </div>
+    </section>
+        <script>
+            const banner = document.querySelector('.banner');
+            window.addEventListener('scroll', function(){
+                const value = 400 + window.scrollY;
+                banner.style.clipPath = "circle("+ value +"px at center center)";
+                
+            })
+            var t1 = new TimelineMax({onUpdate:updatePercentage});
+            const controller = new ScrollMagic.Controller();
+            t1.from('.info-title', .5, {x:500, opacity: 0});
+            const scene = new ScrollMagic.Scene({
+                triggerElement: ".info",
+                triggerHook: "onLeave",
+                duration: "50%"
+            })
+            function updatePercentage() {
+                t1.progress();
+                console.log(t1.progress());
+            }
+        </script>
+</body>
+</html>
